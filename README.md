@@ -9,6 +9,14 @@
 - `npm install`
 - `sudo gem install sass`
 
+## Provision MongoDB
+- [Install Docker](https://docs.docker.com/v17.12/install/)
+- `docker-compose up -d mongo`
+ - Command starts a mongodb container running in the background, available at localhost
+ - Run `docker-compose stop` to stop mongo container (will continue if not explicitly stopped)
+
 ## Start app
 - `npm run start-dev`
 
+## View app
+- `localhost:8080/login`

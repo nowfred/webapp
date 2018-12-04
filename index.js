@@ -24,8 +24,9 @@ var routes = require('./app/routes');
 
 var app = express();
 
-var mongoUri = `mongodb://${config.db_user}:${config.db_password}@${config.db_IP}:${config.db_port}/${config.db}`;
 if (app.get('env') === 'production') {
+
+    var mongoUri = `mongodb://${config.db_user}:${config.db_password}@${config.db_IP}:${config.db_port}/${config.db}`;
     var mongoSslOpt = {
         'server': {
             'sslValidate': false,
@@ -35,6 +36,7 @@ if (app.get('env') === 'production') {
     };
     mongoose.connect(`${mongoUri}?ssl=true`, mongoSslOpt);
 } else {
+    var mongoUri = 'mongodb://localhost:27017/hellogov'
     mongoose.connect(mongoUri);
 }
 mongoose.connection.on('error', function(err) {
